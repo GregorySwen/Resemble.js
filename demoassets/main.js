@@ -59,6 +59,10 @@ $(function() {
 
         $(diffImage).click(function() {
             var w = window.open("about:blank", "_blank");
+            // Resetting the document state to ensure a valid document for adding content on Firefox (issue #181)
+            w.document.open();
+            w.document.close();
+
             var html = w.document.documentElement;
             var body = w.document.body;
 
